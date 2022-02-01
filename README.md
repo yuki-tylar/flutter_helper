@@ -1,16 +1,17 @@
 # neukit
 
-A new Flutter project.
+Neumorphic UI kit based on flutter-neumorphic.
+Currently, form items are available.
+
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To use this kit...
+1. Copy all files in `/lib/neukit` & `/lib/my_library` into your project
+2. install `flutter_neumorphic`, `flutter_datetime_picker`, `flutter_svg`, `intl`
+```
+flutter pub add flutter_neumorphic
+flutter pub add flutter_datetime_picker
+flutter pub add flutter_svg
+flutter pub add intl
+```
