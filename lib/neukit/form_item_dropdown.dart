@@ -29,19 +29,23 @@ class FormItemDropdown<T> extends StatelessWidget {
 
     return FormItemWrapper(
       label: label,
-      child: DropdownButtonFormField<T>(
-        value: selectedValue,
-        decoration: const InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-          border: InputBorder.none,
+      child: IgnorePointer(
+        ignoring: disabled,
+        child: DropdownButtonFormField<T>(
+          value: selectedValue,
+          decoration: const InputDecoration(
+            contentPadding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+            border: InputBorder.none,
+          ),
+          style: Theme.of(context).textTheme.bodyText1,
+          onChanged: (newValue) {
+            selectedValue = newValue;
+            onChanged(newValue);
+          },
+          items: items,
+          validator: (value) =>
+              (required && value == null) ? errorMessage : null,
         ),
-        style: Theme.of(context).textTheme.bodyText1,
-        onChanged: (newValue) {
-          selectedValue = newValue;
-          onChanged(newValue);
-        },
-        items: items,
-        validator: (value) => (required && value == null) ? errorMessage : null,
       ),
     );
   }
