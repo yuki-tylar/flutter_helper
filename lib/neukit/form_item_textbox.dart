@@ -3,7 +3,6 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import '/my_library/validator/validator.dart';
 import 'form_item_wrapper.dart';
 import 'style_form_item.dart';
-import '/widgets/text_block.dart';
 
 typedef Callback = void Function(String? val);
 const List<Validator> defaultValidators = [];
@@ -85,13 +84,15 @@ class _FormItemTextboxState extends State<FormItemTextbox> {
             minHeight: 0,
           ),
           prefixIcon: widget.prefix != null
-              ? TextBlock(
-                  widget.prefix!,
+              ? Container(
                   padding: const EdgeInsets.fromLTRB(15, 0, 5, 0),
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText1!
-                      .copyWith(color: Theme.of(context).disabledColor),
+                  child: Text(
+                    widget.prefix!,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1!
+                        .copyWith(color: Theme.of(context).disabledColor),
+                  ),
                 )
               : null,
         ),

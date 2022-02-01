@@ -1,6 +1,5 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import '/my_library/formatter/flutter_formatter.dart';
-import 'package:neukit/widgets/text_block.dart';
 
 class FormItemWrapper extends StatelessWidget {
   final Widget child;
@@ -20,10 +19,12 @@ class FormItemWrapper extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         if (label != null)
-          TextBlock(
-            Formatter().titleCase(label),
+          Container(
             margin: const EdgeInsets.only(bottom: 10),
-            style: Theme.of(context).textTheme.subtitle2,
+            child: Text(
+              Formatter().titleCase(label),
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
           ),
         Neumorphic(
           margin: EdgeInsets.only(bottom: marginBottom),
