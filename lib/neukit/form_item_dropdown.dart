@@ -10,12 +10,16 @@ class FormItemDropdown<T> extends StatelessWidget {
   final bool disabled;
   final List<DropdownMenuItem<T>> items;
   final CallBack<T> onChanged;
+  final bool required;
+  final String errorMessage;
   const FormItemDropdown({
     Key? key,
     this.label,
     this.initialValue,
     this.disabled = false,
     this.items = const [],
+    this.required = false,
+    this.errorMessage = 'Required',
     required this.onChanged,
   }) : super(key: key);
 
@@ -37,7 +41,7 @@ class FormItemDropdown<T> extends StatelessWidget {
           onChanged(newValue);
         },
         items: items,
-        validator: (value) => value == null ? 'Please select city' : null,
+        validator: (value) => (required && value == null) ? errorMessage : null,
       ),
     );
   }
