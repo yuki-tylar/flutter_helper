@@ -1,5 +1,5 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import '/my_library/formatter/flutter_formatter.dart';
+import '/my_library/flutter_formatter/flutter_formatter.dart';
 
 class FormItemWrapper extends StatelessWidget {
   final Widget child;

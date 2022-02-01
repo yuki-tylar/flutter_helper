@@ -1,12 +1,12 @@
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import 'package:neukit/neukit/style_form_item.dart';
-
-import 'form_item_wrapper.dart';
 import 'package:flutter/material.dart';
-import '/my_library/validator/validator.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
-const List<Validator> defaultValidators = [Validator.required];
+import '/my_library/flutter_validator/flutter_validator.dart';
+import 'style_form_item.dart';
+import 'form_item_wrapper.dart';
+
+List<Validator> defaultValidators = [Validator.required()];
 const String defaultLabel = 'date';
 typedef Callback = void Function(DateTime? value);
 
@@ -26,7 +26,7 @@ class FormItemDate extends StatefulWidget {
     this.controller,
     this.label = defaultLabel,
     this.showLabel = true,
-    this.validators = defaultValidators,
+    this.validators = const <Validator>[],
     this.format = 'MMMM dd, yyyy',
     this.onSaved,
     this.onChanged,
@@ -101,19 +101,17 @@ class _FormItemDateState extends State<FormItemDate> {
           }
         },
         validator: (String? value) {
-          bool valid = true;
+          String? error;
           if (widget.validators != null) {
             for (var i = 0; i < widget.validators!.length; i++) {
-              valid = widget.validators![i].validate(value);
-              if (!valid) {
+              error = widget.validators![i].validate(value);
+              if (error != null) {
                 break;
               }
             }
           }
 
-          return valid
-              ? null
-              : 'Please select ${widget.label != null ? widget.label! : defaultLabel}';
+          return error;
         },
       ),
     );

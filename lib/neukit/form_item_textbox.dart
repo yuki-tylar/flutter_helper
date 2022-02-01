@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import '/my_library/validator/validator.dart';
+import '/my_library/flutter_validator/flutter_validator.dart';
 import 'form_item_wrapper.dart';
 import 'style_form_item.dart';
 
 typedef Callback = void Function(String? val);
-const List<Validator> defaultValidators = [];
 const String defaultLabel = 'name';
 
 class FormItemTextbox extends StatefulWidget {
@@ -28,7 +27,7 @@ class FormItemTextbox extends StatefulWidget {
     Key? key,
     this.controller,
     this.label = defaultLabel,
-    this.validators = defaultValidators,
+    this.validators = const [],
     this.onSaved,
     this.onChanged,
     this.minLines = 1,
@@ -100,15 +99,15 @@ class _FormItemTextboxState extends State<FormItemTextbox> {
         onChanged: widget.onChanged,
         obscureText: widget.obscureText,
         validator: (String? value) {
-          Validator? error;
+          String? error;
           for (var i = 0; i < widget.validators.length; i++) {
-            if (!widget.validators[i].validate(value)) {
-              error = widget.validators[i];
+            error = widget.validators[i].validate(value);
+            if (error != null) {
               break;
             }
           }
 
-          return error?.errorMessage(widget.label);
+          return error;
         },
       ),
     );

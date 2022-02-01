@@ -1,6 +1,6 @@
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:intl/intl.dart';
-import '/my_library/datetime_handler/flutter_datetime_handler.dart';
+import '/my_library/flutter_datetime_handler/flutter_datetime_handler.dart';
 
 class CustomDatetimePicker extends CommonPickerModel {
   DateTime nextTime(int left, int middle, int right) {

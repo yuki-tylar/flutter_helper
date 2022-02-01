@@ -1,10 +1,10 @@
 import 'package:flutter_svg/svg.dart';
-import '/my_library/formatter/flutter_formatter.dart';
-import 'style_form_item.dart';
-
-import '/my_library/validator/validator.dart';
-import 'form_item_wrapper.dart';
 import 'package:flutter/material.dart';
+
+import '/my_library/flutter_validator/flutter_validator.dart';
+import '/my_library/flutter_formatter/flutter_formatter.dart';
+import 'style_form_item.dart';
+import 'form_item_wrapper.dart';
 
 typedef Callback = Function(String? value);
 const String defaultLabel = 'password';
@@ -27,7 +27,7 @@ class FormItemPassword extends StatefulWidget {
     this.onSaved,
     this.onChanged,
     this.controller,
-    this.validators = const [Validator.required, Validator.password],
+    this.validators = const [],
     this.marginBottom = 50,
     this.hint,
     this.infoDescription,
@@ -80,15 +80,16 @@ class _FormItemPasswordState extends State<FormItemPassword> {
                   onSaved: widget.onSaved,
                   onChanged: widget.onChanged,
                   validator: (String? value) {
-                    Validator? error;
+                    String? error;
                     for (var i = 0; i < widget.validators.length; i++) {
-                      if (!widget.validators[i].validate(value)) {
-                        error = widget.validators[i];
+                      error = widget.validators[i].validate(value);
+
+                      if (error != null) {
                         break;
                       }
                     }
 
-                    return error?.errorMessage(widget.label);
+                    return error;
                   },
                 ),
               ),
