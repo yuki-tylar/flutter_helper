@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:validator/flutter_validator.dart';
 
-import '/my_library/flutter_validator/flutter_validator.dart';
 import 'style_form_item.dart';
 import 'form_item_wrapper.dart';
 import 'datetime_picker.dart';

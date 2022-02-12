@@ -1,8 +1,8 @@
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
+import 'package:formatter/flutter_formatter.dart';
+import 'package:validator/flutter_validator.dart';
 
-import '/my_library/flutter_validator/flutter_validator.dart';
-import '/my_library/flutter_formatter/flutter_formatter.dart';
 import 'style_form_item.dart';
 import 'form_item_wrapper.dart';
 

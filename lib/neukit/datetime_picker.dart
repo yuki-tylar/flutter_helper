@@ -1,6 +1,6 @@
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:intl/intl.dart';
-import '/my_library/flutter_datetime_handler/flutter_datetime_handler.dart';
+import 'package:moment/flutter_moment.dart';
 
 class CustomDatetimePicker extends CommonPickerModel {
   DateTime nextTime(int left, int middle, int right) {
@@ -19,9 +19,9 @@ class CustomDatetimePicker extends CommonPickerModel {
   }
 
   int dateDiff(DateTime dt) {
-    var dtHandler = DateTimeHandler();
-    var today = dtHandler.datePushedTo(floor: true);
-    dt = dtHandler.datePushedTo()(from: dt, floor: true);
+    var moment = Moment();
+    var today = moment.datePushedTo(floor: true);
+    dt = moment.datePushedTo()(from: dt, floor: true);
     return dt.difference(today).inDays;
   }
 

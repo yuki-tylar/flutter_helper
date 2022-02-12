@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import '/my_library/flutter_validator/flutter_validator.dart';
+import 'package:validator/flutter_validator.dart';
 import 'form_item_wrapper.dart';
 import 'style_form_item.dart';
 
