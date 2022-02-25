@@ -93,7 +93,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "2ff9ee0cf5bf5f3b035cb640385463e5a1ea3abe"
+      resolved-ref: "4d8292c91aefc2f777fe3ef9b339bf164eae4b37"
       url: "git@github.com:yuki-tylar/flutter-formatter.git"
     source: git
     version: "0.0.1"

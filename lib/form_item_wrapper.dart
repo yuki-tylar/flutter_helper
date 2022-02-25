@@ -22,7 +22,7 @@ class FormItemWrapper extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(bottom: 10),
             child: Text(
-              Formatter().titleCase(label),
+              Formatter.titleCase(label),
               style: Theme.of(context).textTheme.subtitle2,
             ),
           ),

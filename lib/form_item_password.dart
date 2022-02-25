@@ -63,7 +63,7 @@ class _FormItemPasswordState extends State<FormItemPassword> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         FormItemWrapper(
-          label: widget.showLabel ? Formatter().titleCase(widget.label) : null,
+          label: widget.showLabel ? Formatter.titleCase(widget.label) : null,
           marginBottom: 0,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
