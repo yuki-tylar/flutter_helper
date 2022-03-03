@@ -137,7 +137,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "7f4727f699d7b3bb7979eb1362f4345e50df5f2e"
+      resolved-ref: d49394bb8a2ca44624fcecf1762b589bbce1ab2e
       url: "git@github.com:yuki-tylar/flutter_moment.git"
     source: git
     version: "0.0.1"

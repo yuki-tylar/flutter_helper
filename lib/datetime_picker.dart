@@ -19,9 +19,8 @@ class CustomDatetimePicker extends CommonPickerModel {
   }
 
   int dateDiff(DateTime dt) {
-    var moment = Moment();
-    var today = moment.datePushedTo(floor: true);
-    dt = moment.datePushedTo()(from: dt, floor: true);
+    var today = Moment.datePushedTo(floor: true);
+    dt = Moment.datePushedTo(from: dt, floor: true);
     return dt.difference(today).inDays;
   }
 
